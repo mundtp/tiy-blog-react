@@ -19698,15 +19698,100 @@ var React = require('react'),
 
 var app = function app() {
 
+	// Note that components you define MUST have capital letters
+	var HomeView = React.createClass({
+		displayName: 'HomeView',
+
+		render: function render() {
+			return(
+				// you must return ONE element. you may not return two or more sibling
+				// elements. if you want to return two elements or components, you
+				// must wrap them in an enclosing tag.
+				React.createElement('div', { id: 'homeContainer' }, React.createElement(Header, null), React.createElement(TopWhiteCol, null), React.createElement(LeftWhiteCol, null), React.createElement(LeftText, null), React.createElement(MidWhiteCol, null), React.createElement(RightText, null), React.createElement(RightWhiteCol, null), React.createElement(FixedBox, null))
+			);
+		}
+	});
+
 	var Header = React.createClass({
 		displayName: 'Header',
 
 		render: function render() {
-			return React.createElement('h1', null, 'YOLO');
+			return React.createElement('div', { id: 'logoRel' }, React.createElement('img', { src: 'http://magentanova.github.io/html-intro-1/images/houston.jpg' }), React.createElement(TiyLogo, null));
 		}
 	});
 
-	ReactDOM.render(React.createElement(Header, null), document.querySelector('.container'));
+	var TiyLogo = React.createClass({
+		displayName: 'TiyLogo',
+
+		render: function render() {
+			return React.createElement('div', { id: 'logoAbs' }, React.createElement('img', { id: 'circlelogo', src: 'http://magentanova.github.io/html-intro-1/images/ironyardlogo.png' }));
+		}
+	});
+
+	var TopWhiteCol = React.createClass({
+		displayName: 'TopWhiteCol',
+
+		render: function render() {
+			return React.createElement('div', { className: 'topWhiteCol' });
+		}
+	});
+
+	var LeftWhiteCol = React.createClass({
+		displayName: 'LeftWhiteCol',
+
+		render: function render() {
+			return React.createElement('div', { className: 'leftWhiteCol' });
+		}
+	});
+	var MidWhiteCol = React.createClass({
+		displayName: 'MidWhiteCol',
+
+		render: function render() {
+			return React.createElement('div', { className: 'midWhiteCol' });
+		}
+	});
+	var RightWhiteCol = React.createClass({
+		displayName: 'RightWhiteCol',
+
+		render: function render() {
+			return React.createElement('div', { className: 'rightWhiteCol' });
+		}
+	});
+
+	var LeftText = React.createClass({
+		displayName: 'LeftText',
+
+		render: function render() {
+			return React.createElement('div', { className: 'leftText' }, React.createElement('p', null, React.createElement('b', null, React.createElement('font', { size: '1px' }, 'The Iron Yard | Houston'))), React.createElement('p', null, React.createElement('font', { size: '1', px: true, color: 'gray' }, 'Happenings and updates from The Iron Yard in Houston, TX')), React.createElement('p', { className: 'topspace' }), React.createElement('p', { className: 'padding' }, React.createElement('font', { color: 'gray', size: '4px' }, React.createElement('b', null, 'Search'))), React.createElement(Search, null));
+		}
+	});
+
+	var Search = React.createClass({
+		displayName: 'Search',
+
+		render: function render() {
+			return React.createElement('div', { id: 'search' }, React.createElement('p', { className: 'grayborder' }, React.createElement('font', { color: 'gray', size: '1', border: '1px' }, 'Search Keywords')));
+		}
+	});
+
+	var RightText = React.createClass({
+		displayName: 'RightText',
+
+		render: function render() {
+			return React.createElement('div', { className: 'rightText' }, React.createElement('b', null, React.createElement('font', { size: '4' }, 'September 22 Starts a New Class of The Iron Yard Houston Students')), React.createElement('p', null, React.createElement('i', null, 'By Brian Dorton, Campus Director at', React.createElement('font', { color: '2A6DB0' }, 'The Iron Yard'), ' Houston')), React.createElement('img', { src: 'http://magentanova.github.io/html-intro-1/images/classroom.jpg' }), React.createElement('p', null, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia doloribus in vel possimus sit, impedit alias, asperiores laborum beatae reiciendis, error facere eveniet quas quibusdam hic eius eos. Incidunt, et! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, dignissimos? Vitae repudiandae minima aspernatur, eaque labore ullam natus rem dolorem consequatur sunt ea laborum delectus. Laboriosam quod, placeat neque temporibus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, dignissimos? Vitae repudiandae minima aspernatur, eaque labore ullam natus rem dolorem consequatur sunt ea laborum delectus. Laboriosam quod, placeat neque temporibus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, dignissimos? Vitae repudiandae minima aspernatur, eaque labore ullam natus rem dolorem consequatur sunt ea laborum delectus. Laboriosam quod, placeat neque temporibus!'));
+		}
+	});
+
+	var FixedBox = React.createClass({
+		displayName: 'FixedBox',
+
+		render: function render() {
+			return React.createElement('div', { id: 'fixedBox' }, React.createElement('p', { className: 'grayborder' }, React.createElement('font', { size: '1' }, React.createElement('b', null, 'Never miss a post!'))), React.createElement('p', { className: 'grayborder' }, React.createElement('img', { className: 'squarelogo', src: 'http://magentanova.github.io/html-intro-1/images/ironyardlogo.png' }), React.createElement('font', { className: 'alignTop', size: '1', color: 'gray' }, React.createElement('font', { color: 'black' }, React.createElement('b', null, 'tiyhouston')), 'The Iron Yard | Houston '), React.createElement('img', { className: 'followlogo', src: 'http://d1qxsigluyuaz5.cloudfront.net/application/_img/socialmedia/2/follow.png' })));
+		}
+	});
+
+	// mount the top-level component to the page.
+	ReactDOM.render(React.createElement(HomeView, null), document.querySelector('.container'));
 };
 
 app();
